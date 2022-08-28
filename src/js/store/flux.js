@@ -1,21 +1,47 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			characters: [
+		
+				// ,
+				// {
+				// 	title: "SECOND",
+				// 	background: "white",
+				// 	initial: "white"
+				// }
+			],
+			personajeDetalle: [],
+			personaje: [],
+			planeta: [],
+			planetaDetalle: [], 
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
+			agregarPersonajes: (detallePersonaje) => {
+				setStore({ personaje: detallePersonaje });
+			},
+
+			agregarPlanetas: (detallePlaneta) => {
+				const store = getStore();
+				setStore({...store, planeta: detallePlaneta})				
+			},
+
+			setCharacters: (data) => {
+				const store = getStore();
+				setStore({...store, characters: data})
+			},
+
+			setPersonajeDetalle: (data) => {
+				const store = getStore();
+				setStore({...store, personajeDetalle: data})
+			},
+
+			setPlanetaDetalle: (detallePlaneta) => {
+				const store = getStore();
+				setStore({...store, planetaDetalle: detallePlaneta})
+			},
+
+
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
@@ -38,8 +64,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//reset the global store
 				setStore({ demo: demo });
 			}
+			
 		}
+		
 	};
+	
 };
 
 export default getState;

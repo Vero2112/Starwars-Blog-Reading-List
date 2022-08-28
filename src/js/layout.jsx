@@ -13,7 +13,12 @@ import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar.jsx";
 import { Footer } from "./component/footer.jsx";
-import Learnmore from "./component/learnmore.jsx";
+import LearnmorePersonaje from "./component/LearnmorePersonaje.jsx";
+import LearnmorePlaneta from "./component/LearnmorePlaneta.jsx";
+import Personajes from "./component/personajes.jsx";
+import Planetas from "./component/planetas.jsx";
+import CardPersonaje from "./component/cardpersonaje.jsx";
+
 const Notfound = () => {
   return (
     <>
@@ -36,7 +41,12 @@ const Layout = () => {
           
           <Routes>
             <Route path="/" element={<Home />}></Route>
-            <Route path="/learnmore" element={<Learnmore/>}></Route>
+            <Route path="/learnmorepersonaje/:id" element={<LearnmorePersonaje/>}></Route>
+            <Route path="/learnmoreplaneta/:id" element={<LearnmorePlaneta/>}></Route>
+            {/* <Route path="/learnmore" element={<LearnmorePersonaje/>}></Route> */}
+            <Route path="/personajes" element={<Personajes/>}></Route>
+            <Route path="/planetas" element={<Planetas/>}></Route>
+            {/* <Route path="/cardpersonajes" element={<CardPersonaje/>}></Route> */}
             <Route path="/demo" element={<Demo />}></Route>
             <Route path="/single/:theid" element={<Single />}></Route>
             <Route element={<Notfound />}></Route>
