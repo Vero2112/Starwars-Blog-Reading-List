@@ -3,20 +3,20 @@ import Card from "../component/card.jsx";
 import "../../styles/home.css";
 import Personajes from "../component/personajes.jsx";
 import Planetas from "../component/planetas.jsx";
-
+import "../../styles/home.css";
 //create your first component
 const Home = () => {
 
 	return (
 		<>
 			<div className="container fluid">
-				<div className="row ">
+				<div className="row justify-content-center">
 					
 					
 						<ul className="nav nav-pills justify-content-center m-3" id="pills-tab" role="tablist">
 							{/* <!-- INICIO BOTON DE FORMATO 1 --> */}
 							<li className="nav-item" role="presentation">
-								<button className="btn btn-outline-primary border-white" id="pills-home-tab" data-bs-toggle="pill"
+								<button className="btn btn-outline-light border-white m-2" id="pills-home-tab" data-bs-toggle="pill"
 									data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
 									aria-selected="true"> Characters
 									
@@ -25,7 +25,7 @@ const Home = () => {
 							{/* <!-- FIN BOTON DE FORMATO 1 -->
 									<!-- INICIO BOTON DE FORMATO 2 --> */}
 							<li className="nav-item" role="presentation">
-								<button className="btn btn-outline-primary border-white" id="pills-profile-tab"
+								<button className="btn btn-outline-light border-white m-2" id="pills-profile-tab"
 									data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab"
 									aria-controls="pills-profile" aria-selected="false">Planets
 									
