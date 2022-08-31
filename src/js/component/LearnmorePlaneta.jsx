@@ -59,6 +59,10 @@ const LearnmorePlaneta = () => {
                                         // style={{ width: 50 + "%", height: 150 + "%"}}
                                         src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}
                                         alt="Card image cap"
+                                        onError={(e) => {
+                                            e.target.onerror = null
+                                            e.target.src = "https://cdn.worldvectorlogo.com/logos/star-wars-2.svg"
+                                        }}
                                     ></img>
                                 </div>
                                 <div className="col-6 m-3">
@@ -103,8 +107,8 @@ const LearnmorePlaneta = () => {
 
             <div className="border-top-danger d-flex justify-content-center">
 
-                <Link to="/">
-                    <button className="btn btn-outline-light">Back Home!</button>
+                <Link to="/planetas">
+                    <button className="btn btn-outline-light">Back!</button>
                 </Link>
 
             </div>

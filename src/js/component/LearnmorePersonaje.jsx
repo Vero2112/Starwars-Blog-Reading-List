@@ -90,6 +90,10 @@ const LearnmorePersonaje = () => {
                   className="img-fluid"
                   style={{ width: 40 + "rem", height: 40 + "rem", margin: "auto" }}
                   src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
+                	onError={(e) => {
+                    e.target.onerror = null
+                    e.target.src = "https://cdn.worldvectorlogo.com/logos/star-wars-2.svg"
+                  }}
                 >
                 </img>
               </div>
@@ -129,8 +133,8 @@ const LearnmorePersonaje = () => {
 
       <div className="border-top-danger d-flex justify-content-center">
 
-        <Link to="/">
-          <button className="btn btn-outline-light">Back Home!</button>
+        <Link to="/personajes">
+          <button className="btn btn-outline-light">Back!</button>
         </Link>
 
       </div>

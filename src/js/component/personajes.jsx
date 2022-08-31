@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import Card from "../component/card.jsx";
 import "../../styles/home.css";
 import { Context } from "../store/appContext.js";
-
+import { Link } from "react-router-dom";
 //create your first component
 const Personajes = () => {
 
@@ -67,19 +67,19 @@ const Personajes = () => {
 					// {!store.personaje.name ? <span>Loading...</span> : store.personaje.name}
 					return (
 						// <div className="row row-cols-2 row-cols-md-4">
-							<div key={index} className="h-25">
-								<Card
-									// name={!personaje.name ? <span>Loading...</span> : personaje.name}
-									name={personaje.name}
-									src={`https://starwars-visualguide.com/assets/img/characters/${personaje.uid}.jpg`}
-									id={personaje.uid}
-									key1="Hair color: "
-									key2="Eye color: "
-									value1={personaje.uid}
-									value2={store.personajeDetalle.eye_color}
-									route={"learnmorepersonaje/" + personaje.uid}
-								/>
-							</div>
+						<div key={index} className="h-25">
+							<Card
+								// name={!personaje.name ? <span>Loading...</span> : personaje.name}
+								name={personaje.name}
+								src={`https://starwars-visualguide.com/assets/img/characters/${personaje.uid}.jpg`}
+								id={personaje.uid}
+								key1="Hair color: "
+								key2="Eye color: "
+								value1={personaje.uid}
+								value2={store.personajeDetalle.eye_color}
+								route={personaje.uid}
+							/>
+						</div>
 						// </div>
 					);
 
@@ -144,6 +144,16 @@ const Personajes = () => {
 						info3="shdhdsh"
 					/>
 				</div> */}
+
+				<div className="border-top-danger d-flex justify-content-center">
+
+					<Link to="/">
+						<button className="btn btn-outline-light">Back!</button>
+					</Link>
+
+				</div>
+
+
 			</div>
 		</>
 	);

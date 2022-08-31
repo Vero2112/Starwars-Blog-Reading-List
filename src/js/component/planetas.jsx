@@ -3,6 +3,7 @@ import Card from "../component/card.jsx";
 import "../../styles/home.css";
 import { Context } from "../store/appContext.js";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 //create your first component
 const Planetas = () => {
 
@@ -41,19 +42,19 @@ const Planetas = () => {
                     // })
                     // .catch((e) => {
                     //     console.error(e);
-        
+
                     // });
                     return (
                         <div key={planeta.uid}>
                             <Card
-                            // key={planeta.uid}
+                                // key={planeta.uid}
                                 name={planeta.name}
                                 src={`https://starwars-visualguide.com/assets/img/planets/${planeta.uid}.jpg`}
                                 key1="Gravity: "
                                 key2="Rotation period: "
                                 value1="{store.planetasInfo.value1}"
                                 value2={store.planetaDetalle.rotation_period}
-                                route={"learnmoreplaneta/" + planeta.uid}
+                                route={planeta.uid}
                             />
                         </div>
                     );
@@ -111,7 +112,13 @@ const Planetas = () => {
 
                 </div>
 
+                <div className="border-top-danger d-flex justify-content-center">
 
+                    <Link to="/">
+                        <button className="btn btn-outline-light">Back!</button>
+                    </Link>
+
+                </div>
             </div>
         </>
     );
