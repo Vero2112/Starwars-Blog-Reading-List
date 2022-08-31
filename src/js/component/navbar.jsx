@@ -48,7 +48,7 @@ export const Navbar = () => {
 										{favorite.name}{" "}{favorite.id}
 										<button
 											onClick={() => actions.deleteFavorites(favorite.name)}
-											className="btn text-end fa fa-trash ms-2"
+											className="btn text-white fa fa-trash ms-2"
 										></button>
 									</a>
 								</li>
