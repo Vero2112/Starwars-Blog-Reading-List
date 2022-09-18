@@ -3,29 +3,29 @@ import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 
-const LearnmorePlaneta = () => {
+const LearnmoreStarship = () => {
 
     const { store, actions } = useContext(Context);
 
     const { id } = useParams();
-    const URL = "https://www.swapi.tech/api/planets";
-    const getPlanetaURL = (id) => {
+    const URL = "https://www.swapi.tech/api/starships";
+    const getStarshipURL = (id) => {
         return fetch(`${URL}/${id}`);
     }
     console.log("id: ", id);
 
-    const getPlanetaInfo = async () => {
+    const getStarshipInfo = async () => {
 
-        getPlanetaURL(id)
+        getStarshipURL(id)
             .then((res) => {
                 return res.json();
             })
             .then((data) => {
-                const planeta = data.result.properties;
+                const starship = data.result.properties;
                 const descripcion = data.result;
-                console.log("soy la data del planeta: ", data.result.description);
-                actions.setPlanetaDetalle(planeta);
-                actions.setPlanetaDescripcion(descripcion);
+                console.log("soy la data del starship: ", data.result.description);
+                actions.setStarshipDetalle(starship);
+                actions.setStarshipDescripcion(descripcion);
             })
             .catch((e) => {
                 console.error(e);
@@ -35,7 +35,7 @@ const LearnmorePlaneta = () => {
     };
 
     useEffect(() => {
-        getPlanetaInfo();
+        getStarshipInfo();
     }, []);
 
 
@@ -67,33 +67,33 @@ const LearnmorePlaneta = () => {
                                 </div>
                                 <div className="col-6 m-3">
                                     <h1 className="card-title">
-                                        <p className="card-text">{!store.planetaDetalle.name ? <span>Loading...</span> : store.planetaDetalle.name}</p>
+                                        <p className="card-text">{!store.starshipDetalle.name ? <span>Loading...</span> : store.starshipDetalle.name}</p>
 
                                     </h1>
 
                                     
                                     <div className="d-flex">
-                                        <p> <strong>Name: </strong>  {!store.planetaDetalle.name ? <span>Loading...</span> : store.planetaDetalle.name}</p>
+                                        <p> <strong>Name: </strong>  {!store.starshipDetalle.name ? <span>Loading...</span> : store.starshipDetalle.name}</p>
                                     </div>
 
                                     <div className="d-flex">
-                                        <p> <strong>Diameter: </strong>   {!store.planetaDetalle.diameter ? <span>Loading...</span> : store.planetaDetalle.diameter}</p>
+                                        <p> <strong>Model: </strong>   {!store.starshipDetalle.model ? <span>Loading...</span> : store.starshipDetalle.model}</p>
                                     </div>
 
                                     <div className="d-flex">
-                                        <p> <strong>Rotation period: </strong>  {!store.planetaDetalle.rotation_period ? <span>Loading...</span> : store.planetaDetalle.rotation_period}</p>
+                                        <p> <strong>Passengers: </strong>  {!store.starshipDetalle.passengers ? <span>Loading...</span> : store.starshipDetalle.passengers}</p>
                                     </div>
 
                                     <div className="d-flex">
-                                        <p> <strong>Orbital period: </strong>  {!store.planetaDetalle.orbital_period ? <span>Loading...</span> : store.planetaDetalle.orbital_period}</p>
+                                        <p> <strong>Consumables: </strong>  {!store.starshipDetalle.consumables ? <span>Loading...</span> : store.starshipDetalle.consumables}</p>
                                     </div>
 
                                     <div className="d-flex">
-                                        <p> <strong>Gravity:  </strong>  {!store.planetaDetalle.gravity ? <span>Loading...</span> : store.planetaDetalle.gravity}</p>
+                                        <p> <strong>Starship class:  </strong>  {!store.starshipDetalle.starship_class ? <span>Loading...</span> : store.starshipDetalle.starship_class}</p>
                                     </div>
 
                                     <div className="d-flex">
-                                        <p>  <strong>Population: </strong> {!store.planetaDetalle.population ? <span>Loading...</span> : store.planetaDetalle.population}</p>
+                                        <p>  <strong>Length: </strong> {!store.starshipDetalle.length ? <span>Loading...</span> : store.starshipDetalle.length}</p>
                                     </div>
 
                                 </div>
@@ -107,7 +107,7 @@ const LearnmorePlaneta = () => {
 
             <div className="border-top-danger d-flex justify-content-center">
 
-                <Link to="/planetas">
+                <Link to="/starships">
                     <button className="btn btn-outline-light">Back!</button>
                 </Link>
 
@@ -117,4 +117,4 @@ const LearnmorePlaneta = () => {
     )
 };
 
-export default LearnmorePlaneta
+export default LearnmoreStarship

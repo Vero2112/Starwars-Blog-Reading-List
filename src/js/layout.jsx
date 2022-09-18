@@ -15,9 +15,12 @@ import { Navbar } from "./component/navbar.jsx";
 import { Footer } from "./component/footer.jsx";
 import LearnmorePersonaje from "./component/LearnmorePersonaje.jsx";
 import LearnmorePlaneta from "./component/LearnmorePlaneta.jsx";
+import LearnmoreStarship from "./component/LearnmoreStarship.jsx";
 import Personajes from "./component/personajes.jsx";
 import Planetas from "./component/planetas.jsx";
 import Categorias from "./component/categorias.jsx";
+import Construction from "./component/construction.jsx";
+import Starship from "./component/starships.jsx";
 
 const Notfound = () => {
   return (
@@ -43,10 +46,13 @@ const Layout = () => {
             <Route path="/" element={<Home />}></Route>
             <Route path="/personajes/:id" element={<LearnmorePersonaje/>}></Route>
             <Route path="/planetas/:id" element={<LearnmorePlaneta/>}></Route>
+            <Route path="/starships/:id" element={<LearnmoreStarship/>}></Route>
             {/* <Route path="/learnmore" element={<LearnmorePersonaje/>}></Route> */}
             <Route path="/personajes" element={<Personajes/>}></Route>
             <Route path="/planetas" element={<Planetas/>}></Route>
             <Route path="/categorias" element={<Categorias/>}></Route>
+            <Route path="/construction" element={<Construction/>}></Route>
+            <Route path="/starships" element={<Starship/>}></Route>
             <Route path="/demo" element={<Demo />}></Route>
             <Route path="/single/:theid" element={<Single />}></Route>
             <Route element={<Notfound />}></Route>

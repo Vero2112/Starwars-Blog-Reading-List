@@ -8,3 +8,13 @@ body {
     background-color: rgba(0,0,0,255);
 }
 
+.alumbradorojo {
+    box-shadow: 0px 0px 30px 30px red;
+  }
+
+
+.container {
+    min-height: 75vh;
+    margin-bottom: 50px;
+  }
+

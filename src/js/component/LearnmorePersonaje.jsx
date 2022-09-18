@@ -76,11 +76,9 @@ const LearnmorePersonaje = () => {
 
   }, []);
 
-
-
   return (
     <>
-      <div className="container-fluid d-flex justify-content-center">
+      <div className="container-fluid d-flex justify-content-center container">
 
         <div className="card mb-3 ms-5 me-5 w-75 bg-transparent text-white"  >
           <div className="row g-0">
@@ -101,7 +99,7 @@ const LearnmorePersonaje = () => {
                 <h1 className="card-title">
                   <p className="card-text">{!store.personajeDetalle.name ? <span>Loading...</span> : store.personajeDetalle.name}</p>
                 </h1>
-                <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              
                 <div className="d-flex">
                   <p> <strong>Name: </strong>  {!store.personajeDetalle.name ? <span>Loading...</span> : store.personajeDetalle.name}</p>
                 </div>

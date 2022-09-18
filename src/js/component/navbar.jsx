@@ -5,6 +5,7 @@ import { Context } from "../store/appContext";
 
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
+	console.log(store.favorites.id)
 	return (
 		<nav className="navbar navbar-light mb-3 text-end" id="navbar">
 			<div className="col-6">
@@ -40,10 +41,11 @@ export const Navbar = () => {
 					className="dropdown-menu dropdown-menu-dark me-5"
 					aria-labelledby="dropdownMenuClickableInside"
 				>
-					{store.favorites.map((favorite, index) => {
+					{store.favorites.map((favorite) => {
+						console.log("favorite:", favorite);
 						return (
 							<>
-								<li key={favorite.id}>
+								<li index={favorite.id}>
 									<a className="dropdown-item" >
 										{favorite.name}{" "}{favorite.id}
 										<button

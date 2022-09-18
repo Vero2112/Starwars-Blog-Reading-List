@@ -26,24 +26,6 @@ const Planetas = () => {
                 console.log("soy las cards de todos los planetas: ", data.results);
                 actions.agregarPlanetas(planetas);
                 let cardsPlanetas = planetas.map((planeta) => {
-                    // // let cardsPlanetas = planetas.map((planeta, index) => {
-
-                    // // console.log("uid: ", planeta.uid)
-                    // getPlaneta(planeta.uid)
-                    // .then((res) => {
-                    //     return res.json();
-                    // })
-                    // .then((data) => {
-                    //     const planetas = data.result.properties;
-                    //     // console.log("soy la data de todos los planetas: ", data);
-                    //     // console.log("soy los detalles de todos los planetas: ", data.result.properties);
-                    //     console.log("soy los detalles rotation_period de todos los planetas: ", data.result.properties.rotation_period);
-                    //     actions.setPlanetaDetalle(planetas);
-                    // })
-                    // .catch((e) => {
-                    //     console.error(e);
-
-                    // });
                     return (
                         <div key={planeta.uid}>
                             <Card
@@ -72,29 +54,7 @@ const Planetas = () => {
 
     };
 
-    const getPlaneta = (id) => {
-        return fetch(`${URL}/${id}`);
-    }
-    // console.log("id: ", id);
 
-    // const getPlanetaInfo = async () => {
-
-    //     getPlaneta(id)
-    //         .then((res) => {
-    //             return res.json();
-    //         })
-    //         .then((data) => {
-    //             const planetas = data.result.properties;
-
-    //             console.log("soy la data de todos los planetas: ", data.result.properties);
-    //             actions.setPlanetaDetalle(planetas);
-    //         })
-    //         .catch((e) => {
-    //             console.error(e);
-
-    //         });
-
-    // };
 
     useEffect(() => {
         getPlanetasCards();
@@ -105,7 +65,7 @@ const Planetas = () => {
             <div className="container fluid">
 
 
-                <div className="text-white"><h3> Planetas</h3></div>
+                <div className="text-white"><h3> Planets</h3></div>
                 <div className="card-group">
 
                     {planetasCards}

@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 //create your first component
 const Personajes = () => {
 
-	const [datos, obtenerDatos] = useState({});
 	const [personajesCards, obtenerpersonajesCards] = useState([]);
 	const { store, actions } = useContext(Context);
 
@@ -62,25 +61,25 @@ const Personajes = () => {
 
 				console.log("soy la data de todos los personajes: ", data.results);
 				actions.agregarPersonajes(personajes);
-				let cardsPersonajes = personajes.map((personaje, index) => {
+				let cardsPersonajes = personajes.map((personaje) => {
 					// console.log("uid: ", personaje.uid)
 					// {!store.personaje.name ? <span>Loading...</span> : store.personaje.name}
 					return (
 						// <div className="row row-cols-2 row-cols-md-4">
-						<div key={index} className="h-25">
-							<Card
-								// name={!personaje.name ? <span>Loading...</span> : personaje.name}
-								name={personaje.name}
-								src={`https://starwars-visualguide.com/assets/img/characters/${personaje.uid}.jpg`}
-								id={personaje.uid}
-								key1="Hair color: "
-								key2="Eye color: "
-								value1={personaje.uid}
-								value2={store.personajeDetalle.eye_color}
-								route={personaje.uid}
-							/>
-						</div>
-						// </div>
+						<>
+							<div key={personaje.uid} className="h-25">
+								<Card
+									// name={!personaje.name ? <span>Loading...</span> : personaje.name}
+									name={personaje.name}
+									src={`https://starwars-visualguide.com/assets/img/characters/${personaje.uid}.jpg`}
+									id={personaje.uid}
+									key1="Hair color: "
+									key2="Eye color: "
+									route={personaje.uid}
+								/>
+							</div>
+							{/* </div> */}
+						</>
 					);
 
 				});
@@ -99,7 +98,7 @@ const Personajes = () => {
 	return (
 		<>
 			<div className="container fluid">
-
+				
 
 				<div className="text-white"><h3> Characters</h3></div>
 				<div className="card-group">
