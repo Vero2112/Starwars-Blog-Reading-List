@@ -4,18 +4,24 @@ import "../../styles/home.css";
 import { Context } from "../store/appContext.js";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Loading from "./Loading.jsx";
+
 //create your first component
 const Planetas = () => {
 
     const { id } = useParams();
     const [planetasCards, obtenerplanetasCards] = useState([]);
     const { store, actions } = useContext(Context);
+
+    const [loading, setLoading] = useState(false); 
+
     const URL = "https://www.swapi.tech/api/planets";
     const getPlanetas = () => {
         return fetch(`${URL}`);
     }
 
     const getPlanetasCards = async () => {
+        setLoading(true);
         getPlanetas()
             .then((res) => {
                 return res.json();
@@ -50,6 +56,8 @@ const Planetas = () => {
             .catch((e) => {
                 console.error(e);
 
+            }).finally (() => {
+                setLoading(false);
             });
 
     };
@@ -68,7 +76,8 @@ const Planetas = () => {
                 <div className="text-white"><h3> Planets</h3></div>
                 <div className="card-group">
 
-                    {planetasCards}
+                    {loading ? <Loading/>
+                    : planetasCards}
 
                 </div>
 

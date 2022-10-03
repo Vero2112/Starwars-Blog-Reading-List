@@ -5,7 +5,7 @@ import { Context } from "../store/appContext";
 
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
-	console.log(store.favorites.id)
+	console.log(store.favorites.url)
 	return (
 		<nav className="navbar navbar-dark mb-3 text-end" id="navbar">
 			<div className="col-6">
@@ -49,7 +49,7 @@ export const Navbar = () => {
 								<li
 									key={favorite.id}
 									index={favorite.id}>
-									<a className="dropdown-item" href="#">
+									<a className="dropdown-item" href="">
 										{favorite.name}
 										{/* {" "}{favorite.id} */}
 										<button

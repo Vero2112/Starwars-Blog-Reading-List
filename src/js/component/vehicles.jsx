@@ -32,8 +32,8 @@ const Vehicles = () => {
                                
                                 name={vehicle.name}
                                 src={`https://starwars-visualguide.com/assets/img/vehicles/${vehicle.uid}.jpg`}
-                                // route={"/construction"}
-                                route={vehicle.uid}
+                                route={"/construction"}
+                                // route={vehicle.uid}
                             />
                         </div>
                     );

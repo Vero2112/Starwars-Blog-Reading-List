@@ -3,12 +3,13 @@ import Card from "../component/card.jsx";
 import "../../styles/home.css";
 import { Context } from "../store/appContext.js";
 import { Link } from "react-router-dom";
+import Loading from "./Loading.jsx";
 //create your first component
 const Personajes = () => {
 
 	const [personajesCards, obtenerpersonajesCards] = useState([]);
 	const { store, actions } = useContext(Context);
-
+	const [loading, setLoading] = useState(false);
 
 	// const URL = "https://www.swapi.tech/api/people";
 
@@ -20,7 +21,7 @@ const Personajes = () => {
 	// }
 	useEffect(() => {
 
-
+		setLoading(true);
 		// fetch("https://www.swapi.tech/api/people/1/", {
 		// 	method: "GET",
 		// 	headers: {
@@ -59,27 +60,30 @@ const Personajes = () => {
 			.then((data) => {
 				const personajes = data.results;
 
-				console.log("soy la data de todos los personajes: ", data.results);
+				console.log("soy la data.results: ", data.results);
+				console.log("soy la data.type: ", data.type);
 				actions.agregarPersonajes(personajes);
 				let cardsPersonajes = personajes.map((personaje) => {
 					// console.log("uid: ", personaje.uid)
 					// {!store.personaje.name ? <span>Loading...</span> : store.personaje.name}
 					return (
 						// <div className="row row-cols-2 row-cols-md-4">
-						
-							<div key={personaje.uid} className="h-25">
-								<Card
-									// name={!personaje.name ? <span>Loading...</span> : personaje.name}
-									name={personaje.name}
-									src={`https://starwars-visualguide.com/assets/img/characters/${personaje.uid}.jpg`}
-									id={personaje.uid}
-									key1="Hair color: "
-									key2="Eye color: "
-									route={personaje.uid}
-								/>
-							</div>
-							
-						
+
+						<div key={personaje.uid} className="h-25">
+
+
+							<Card
+								// name={!personaje.name ? <span>Loading...</span> : personaje.name}
+								name={personaje.name}
+								src={`https://starwars-visualguide.com/assets/img/characters/${personaje.uid}.jpg`}
+								id={personaje.uid}
+								key1="Hair color: "
+								key2="Eye color: "
+								route={personaje.uid}
+							/>
+						</div>
+
+
 					);
 
 				});
@@ -91,6 +95,8 @@ const Personajes = () => {
 			.catch((e) => {
 				console.error(e);
 
+			}).finally(() => {
+				setLoading(false);
 			});
 
 
@@ -98,12 +104,13 @@ const Personajes = () => {
 	return (
 		<>
 			<div className="container fluid">
-				
+
 
 				<div className="text-white"><h3> Characters</h3></div>
 				<div className="card-group">
 
-					{personajesCards}
+					{loading ? <Loading />
+					: personajesCards}
 
 				</div>
 
