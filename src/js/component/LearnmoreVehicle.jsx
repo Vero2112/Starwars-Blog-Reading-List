@@ -3,12 +3,12 @@ import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 
-const LearnmoreStarship = () => {
+const LearnmoreVehicle = () => {
 
     const { store, actions } = useContext(Context);
 
     const { id } = useParams();
-    const URL = "https://www.swapi.tech/api/starships";
+    const URL = "https://www.swapi.tech/api/vehicles";
     const getStarshipURL = (id) => {
         return fetch(`${URL}/${id}`);
     }
@@ -117,4 +117,4 @@ const LearnmoreStarship = () => {
     )
 };
 
-export default LearnmoreStarship
+export default LearnmoreVehicle

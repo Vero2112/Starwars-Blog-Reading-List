@@ -33,7 +33,7 @@ const Categorias = () => {
             <div className="row justify-content-center">
 
                 <div className="col-3 m-3"><h3 className="text-white">Vehicles </h3> 
-                <Link to="/construction">
+                <Link to="/vehicles">
                 <img className="card-img-top" src={`${URLdata}/vehicles.jpg`} style={estilo}></img>
                 </Link>
                 </div>

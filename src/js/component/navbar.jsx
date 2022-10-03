@@ -7,7 +7,7 @@ export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 	console.log(store.favorites.id)
 	return (
-		<nav className="navbar navbar-light mb-3 text-end" id="navbar">
+		<nav className="navbar navbar-dark mb-3 text-end" id="navbar">
 			<div className="col-6">
 				<Link to="/">
 					<span className="navbar-brand ms-2 mb-0 h1  ">
@@ -21,32 +21,35 @@ export const Navbar = () => {
 			</div>
 
 			<div className="col-5 me-5 text-end">
-			<div className="btn-group ">
-				<button
-					// className="btn btn-outline-light me-2"
-					className="btn btn-outline-light me-2 dropdown-toggle"
-					type="button"
-					id="dropdownMenuClickableInside"
-					data-bs-toggle="dropdown"
-					data-bs-auto-close="outside"
-					aria-expanded="false"
-					onClick={() => {
-						actions.listarFavorites();
-					}}
-				>
-					Favorites
-					<span className="text-light">{" "}{"("}{actions.numFavorites()}{")"}</span>
-				</button>
-				<ul
-					className="dropdown-menu dropdown-menu-dark me-5"
-					aria-labelledby="dropdownMenuClickableInside"
-				>
-					{store.favorites.map((favorite) => {
-						console.log("favorite:", favorite);
-						return (
-							<>
-								<li index={favorite.id}>
-									<a className="dropdown-item" >
+				<div className="btn-group ">
+					<button
+						// className="btn btn-outline-light me-2"
+						className="btn btn-outline-light me-2 dropdown-toggle"
+						type="button"
+						id="dropdownMenuClickableInside"
+						data-bs-toggle="dropdown"
+						// data-bs-auto-close="outside"
+						aria-expanded="false"
+						onClick={() => {
+							actions.listarFavorites();
+						}}
+					>
+						Favorites
+						<span className="text-light">{" "}{"("}{actions.numFavorites()}{")"}</span>
+					</button>
+					<ul
+						className="dropdown-menu dropdown-menu-dark"
+						aria-labelledby="dropdownMenuClickableInside"
+					>
+						{store.favorites.map((favorite) => {
+							console.log("favorite:", favorite);
+							console.log("favorite url  :", favorite);
+							return (
+								// <Link to="/">
+								<li
+									key={favorite.id}
+									index={favorite.id}>
+									<a className="dropdown-item" href="#">
 										{favorite.name}
 										{/* {" "}{favorite.id} */}
 										<button
@@ -55,10 +58,10 @@ export const Navbar = () => {
 										></button>
 									</a>
 								</li>
-							</>
-						);
-					})}
-				</ul>
+								// </Link>
+							);
+						})}
+					</ul>
 				</div>
 			</div>
 		</nav>

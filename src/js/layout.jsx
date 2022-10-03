@@ -21,6 +21,8 @@ import Planetas from "./component/planetas.jsx";
 import Categorias from "./component/categorias.jsx";
 import Construction from "./component/construction.jsx";
 import Starship from "./component/starships.jsx";
+import Vehicles from "./component/vehicles.jsx"
+import Learnmore from "./component/learnmore.jsx";
 
 const Notfound = () => {
   return (
@@ -47,7 +49,8 @@ const Layout = () => {
             <Route path="/personajes/:id" element={<LearnmorePersonaje/>}></Route>
             <Route path="/planetas/:id" element={<LearnmorePlaneta/>}></Route>
             <Route path="/starships/:id" element={<LearnmoreStarship/>}></Route>
-            {/* <Route path="/learnmore" element={<LearnmorePersonaje/>}></Route> */}
+            <Route path="/vehicles" element={<Vehicles/>}></Route>
+            <Route path="/learnmore" element={<Learnmore/>}></Route>
             <Route path="/personajes" element={<Personajes/>}></Route>
             <Route path="/planetas" element={<Planetas/>}></Route>
             <Route path="/categorias" element={<Categorias/>}></Route>

@@ -5,42 +5,42 @@ import { Context } from "../store/appContext.js";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 //create your first component
-const Starship = () => {
+const Vehicles = () => {
 
     const { id } = useParams();
-    const [starshipCards, obtenerStarshipCards] = useState([]);
+    const [vehicleCards, obtenerVehicleCards] = useState([]);
     const { store, actions } = useContext(Context);
-    const URL = "https://www.swapi.tech/api/starships";
-    const getStarship = () => {
+    const URL = "https://www.swapi.tech/api/vehicles";
+    const getVehicle = () => {
         return fetch(`${URL}`);
     }
 
-    const getStarshipCards = async () => {
-        getStarship()
+    const getVehicleCards = async () => {
+        getVehicle()
             .then((res) => {
                 return res.json();
             })
             .then((data) => {
-                const starships = data.results;
+                const vehicles = data.results;
 
-                console.log("soy las cards de todos los starships: ", data.results);
-                actions.agregarStarships(starships);
-                let cardsStarships = starships.map((starship) => {
+                console.log("soy las cards de todos los vehicles: ", data.results);
+                actions.setVehicles(vehicles);
+                let cardsVehicles = vehicles.map((vehicle) => {
                     return (
-                        <div key={starship.uid}>
+                        <div key={vehicle.uid}>
                             <Card
                                
-                                name={starship.name}
-                                src={`https://starwars-visualguide.com/assets/img/starships/${starship.uid}.jpg`}
+                                name={vehicle.name}
+                                src={`https://starwars-visualguide.com/assets/img/vehicles/${vehicle.uid}.jpg`}
                                 // route={"/construction"}
-                                route={starship.uid}
+                                route={vehicle.uid}
                             />
                         </div>
                     );
 
                 });
 
-                obtenerStarshipCards(cardsStarships);
+                obtenerVehicleCards(cardsVehicles);
 
 
             })
@@ -54,7 +54,7 @@ const Starship = () => {
 
 
     useEffect(() => {
-        getStarshipCards();
+        getVehicleCards();
 
     }, []);
     return (
@@ -62,10 +62,10 @@ const Starship = () => {
             <div className="container fluid">
 
 
-                <div className="text-white"><h3> Starship</h3></div>
+                <div className="text-white"><h3> Vehicles</h3></div>
                 <div className="card-group">
 
-                    {starshipCards}
+                    {vehicleCards}
 
                 </div>
 
@@ -81,4 +81,4 @@ const Starship = () => {
     );
 };
 
-export default Starship;
+export default Vehicles;

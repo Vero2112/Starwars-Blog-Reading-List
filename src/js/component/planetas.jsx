@@ -75,7 +75,7 @@ const Planetas = () => {
                 <div className="border-top-danger d-flex justify-content-center">
 
                     <Link to="/">
-                        <button className="btn btn-outline-light">Back!</button>
+                        <button className="btn btn-outline-light mt-5">Back!</button>
                     </Link>
 
                 </div>

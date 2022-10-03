@@ -66,7 +66,7 @@ const Personajes = () => {
 					// {!store.personaje.name ? <span>Loading...</span> : store.personaje.name}
 					return (
 						// <div className="row row-cols-2 row-cols-md-4">
-						<>
+						
 							<div key={personaje.uid} className="h-25">
 								<Card
 									// name={!personaje.name ? <span>Loading...</span> : personaje.name}
@@ -78,8 +78,8 @@ const Personajes = () => {
 									route={personaje.uid}
 								/>
 							</div>
-							{/* </div> */}
-						</>
+							
+						
 					);
 
 				});
@@ -147,7 +147,7 @@ const Personajes = () => {
 				<div className="border-top-danger d-flex justify-content-center">
 
 					<Link to="/">
-						<button className="btn btn-outline-light">Back!</button>
+						<button className="btn btn-outline-light mt-5">Back!</button>
 					</Link>
 
 				</div>

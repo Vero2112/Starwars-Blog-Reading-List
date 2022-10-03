@@ -14,21 +14,26 @@ const Card = (props) => {
 	const favoriteInList = favorites.find((favorite) => {
 		return favorite.name === card.name
 	})
-	let favInListClassName = favoriteInList === undefined ? outlineClassName : plainClassName
+	let favInListClassName = favoriteInList === undefined ? transparentHeart : redHeart
 	const [buttonClassName, setButtonClassname] = useState(favInListClassName)
-	const outlineClassName = "fa fa-heart "
-	const plainClassName = "fa fa-heart text-danger"
+	const transparentHeart = "fa fa-heart "
+	const redHeart = "fa fa-heart text-danger"
 
-	const addORdeleteFavorites = () => {
+	const addOrDeleteFavorites = () => {
 		if (favoriteInList != undefined) {
 			actions.deleteFavorites(card.name);
-			setButtonClassname(outlineClassName)
+			setButtonClassname(transparentHeart)
 		}
 		else if (favoriteInList === undefined) {		
 			actions.saveFavorite(card.name, card.id)
-			setButtonClassname(plainClassName)
+			setButtonClassname(redHeart)
 		}
 
+	}
+	const validacion = () => {
+		return favorites.find((favorite) => {
+			return favorite.name === props.name
+		})
 	}
 	return (
 		<>
@@ -53,13 +58,12 @@ const Card = (props) => {
 					<h4 className="card-title mt-2">{props.name}</h4>
 
 					<button
-
-						className={" btn btn-lg bg-transparent"}
+						className={"btn btn-lg bg-transparent"}
 						id={props.id}
 					>
 						<i
-							className={"fa fa-heart " + buttonClassName}
-							onClick={() => { addORdeleteFavorites(card) }}
+							className={"fa fa-heart " + (validacion() ? redHeart : transparentHeart)}
+							onClick={() => { addOrDeleteFavorites(card) }}
 						/>
 
 					</button>

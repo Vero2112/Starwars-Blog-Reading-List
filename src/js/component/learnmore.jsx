@@ -3,40 +3,40 @@ import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 
-const LearnmoreStarship = () => {
+const Learnmore = () => {
 
-    const { store, actions } = useContext(Context);
+    // const { store, actions } = useContext(Context);
 
-    const { id } = useParams();
-    const URL = "https://www.swapi.tech/api/starships";
-    const getStarshipURL = (id) => {
-        return fetch(`${URL}/${id}`);
-    }
-    console.log("id: ", id);
+    // const { id } = useParams();
+    // const URL = "https://www.swapi.tech/api/starships";
+    // const getStarshipURL = (id) => {
+    //     return fetch(`${URL}/${id}`);
+    // }
+    // console.log("id: ", id);
 
-    const getStarshipInfo = async () => {
+    // const getStarshipInfo = async () => {
 
-        getStarshipURL(id)
-            .then((res) => {
-                return res.json();
-            })
-            .then((data) => {
-                const starship = data.result.properties;
-                const descripcion = data.result;
-                console.log("soy la data del starship: ", data.result.description);
-                actions.setStarshipDetalle(starship);
-                actions.setStarshipDescripcion(descripcion);
-            })
-            .catch((e) => {
-                console.error(e);
+    //     getStarshipURL(id)
+    //         .then((res) => {
+    //             return res.json();
+    //         })
+    //         .then((data) => {
+    //             const starship = data.result.properties;
+    //             const descripcion = data.result;
+    //             console.log("soy la data del starship: ", data.result.description);
+    //             actions.setStarshipDetalle(starship);
+    //             actions.setStarshipDescripcion(descripcion);
+    //         })
+    //         .catch((e) => {
+    //             console.error(e);
 
-            });
+    //         });
 
-    };
+    // };
 
-    useEffect(() => {
-        getStarshipInfo();
-    }, []);
+    // useEffect(() => {
+    //     getStarshipInfo();
+    // }, []);
 
 
 
@@ -57,7 +57,7 @@ const LearnmoreStarship = () => {
                                         width={600}
                                         height={400}
                                         // style={{ width: 50 + "%", height: 150 + "%"}}
-                                        src={`https://starwars-visualguide.com/assets/img/starships/${id}.jpg`}
+                                        src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}
                                         alt="Card image cap"
                                         onError={(e) => {
                                             e.target.onerror = null
@@ -73,7 +73,7 @@ const LearnmoreStarship = () => {
 
                                     
                                     <div className="d-flex">
-                                        <p> <strong>Name: </strong>  {!store.starshipDetalle.name ? <span>Loading...</span> : store.starshipDetalle.name}</p>
+                                        <p> <strong>{props.key1} </strong>  {!store.starshipDetalle.name ? <span>Loading...</span> : store.starshipDetalle.name}</p>
                                     </div>
 
                                     <div className="d-flex">
@@ -117,4 +117,25 @@ const LearnmoreStarship = () => {
     )
 };
 
-export default LearnmoreStarship
+Learnmore.propTypes = {
+	
+	// src: propTypes.string,
+	// id: propTypes.string,
+	// key1: propTypes.string,
+	// key2: propTypes.string,
+    // key3: propTypes.string,
+	// key4: propTypes.string,
+    // key5: propTypes.string,
+    // key6: propTypes.string,
+    // value1: propTypes.string,
+	// value2: propTypes.string,
+    // value3: propTypes.string,
+	// value4: propTypes.string,
+    // value5: propTypes.string,
+    // value6: propTypes.string,
+	// route: propTypes.string,
+};
+
+
+
+export default Learnmore

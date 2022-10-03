@@ -16,6 +16,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       planetaDescripción: [],
       starship: [],
       starshipDetalle: [],
+      vehicle: [],
       favorites: [],
     },
     actions: {
@@ -32,6 +33,11 @@ const getState = ({ getStore, getActions, setStore }) => {
       agregarStarships: (detailStarship) => {
         const store = getStore();
         setStore({ ...store, starship: detailStarship});
+      },
+
+      setVehicles: (data) => {
+        const store = getStore();
+        setStore({ ...store, vehicle: data});
       },
 
       setCharacters: (data) => {
@@ -61,12 +67,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 
 
-      saveFavorite: (name, id, src) => {
+      saveFavorite: (name, id, url) => {
         const store = getStore();
         const newFavorite = {};
         newFavorite.name = name;
         newFavorite.id = id;
-        newFavorite.src = src;
+        newFavorite.src = url;
         const auxFavorites = [...store.favorites, newFavorite];
 
         setStore({ favorites: auxFavorites });
