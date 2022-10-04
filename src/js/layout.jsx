@@ -46,13 +46,13 @@ const Layout = () => {
           
           <Routes>
             <Route path="/" element={<Home />}></Route>
-            <Route path="/personajes/:id" element={<LearnmorePersonaje/>}></Route>
-            <Route path="/planetas/:id" element={<LearnmorePlaneta/>}></Route>
+            <Route path="/characters/:id" element={<LearnmorePersonaje/>}></Route>
+            <Route path="/planets/:id" element={<LearnmorePlaneta/>}></Route>
             <Route path="/starships/:id" element={<LearnmoreStarship/>}></Route>
             <Route path="/vehicles" element={<Vehicles/>}></Route>
             <Route path="/learnmore" element={<Learnmore/>}></Route>
-            <Route path="/personajes" element={<Personajes/>}></Route>
-            <Route path="/planetas" element={<Planetas/>}></Route>
+            <Route path="/characters" element={<Personajes/>}></Route>
+            <Route path="/planets" element={<Planetas/>}></Route>
             <Route path="/categorias" element={<Categorias/>}></Route>
             <Route path="/construction" element={<Construction/>}></Route>
             <Route path="/starships" element={<Starship/>}></Route>

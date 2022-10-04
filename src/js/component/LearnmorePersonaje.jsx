@@ -132,7 +132,7 @@ const LearnmorePersonaje = () => {
 
       <div className="border-top-danger d-flex justify-content-center">
 
-        <Link to="/personajes">
+        <Link to="/characters">
           <button className="btn btn-outline-light">Back!</button>
         </Link>
 

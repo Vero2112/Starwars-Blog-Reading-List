@@ -37,8 +37,9 @@ const Planetas = () => {
                             <Card
                                 // key={planeta.uid}
                                 name={planeta.name}
-                                src={`https://starwars-visualguide.com/assets/img/planets/${planeta.uid}.jpg`}
-                                route={planeta.uid}
+                                // src={`https://starwars-visualguide.com/assets/img/planets/${planeta.uid}.jpg`}
+                                type="planets"
+                                src={`/planets/${planeta.uid}`}
                                 id={planeta.uid}
                             />
                         </div>

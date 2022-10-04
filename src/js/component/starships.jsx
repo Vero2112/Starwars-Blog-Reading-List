@@ -29,12 +29,12 @@ const Starship = () => {
                     return (
                         <div key={starship.uid}>
                             <Card
-                               
+
                                 name={starship.name}
-                                src={`https://starwars-visualguide.com/assets/img/starships/${starship.uid}.jpg`}
-                                // route={"/construction"}
+                                src={`/starships/${starship.uid}`}
                                 route={starship.uid}
                                 id={starship.uid}
+                                type="starships"
                             />
                         </div>
                     );

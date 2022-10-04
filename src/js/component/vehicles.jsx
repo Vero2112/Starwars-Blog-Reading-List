@@ -31,9 +31,10 @@ const Vehicles = () => {
                             <Card
                                
                                 name={vehicle.name}
-                                src={`https://starwars-visualguide.com/assets/img/vehicles/${vehicle.uid}.jpg`}
-                                route={"/construction"}
-                                // route={vehicle.uid}
+                                // src={`/vehicles/${vehicle.uid}`}
+                                src={"/construction"}
+                                type="planets"
+                                
                             />
                         </div>
                     );

@@ -5,7 +5,7 @@ import { Context } from "../store/appContext";
 
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
-	console.log(store.favorites.url)
+	console.log(store.favorites)
 	return (
 		<nav className="navbar navbar-dark mb-3 text-end" id="navbar">
 			<div className="col-6">
@@ -45,20 +45,24 @@ export const Navbar = () => {
 							console.log("favorite:", favorite);
 							// console.log("favorite url  :", favorite.id);
 							return (
-								// <Link to="/">
+								
 								<li
 									key={favorite.id}
 									index={favorite.id}>
-									<a className="dropdown-item" href="">
+									<a className="dropdown-item" href={`/${favorite.type}/${favorite.id}`} >
+
+									
 										{favorite.name}
-										{/* {" "}{favorite.id} */}
+										</a>
+										
 										<button
 											onClick={() => actions.deleteFavorites(favorite.name)}
 											className="btn text-white fa fa-trash ms-2"
-										></button>
-									</a>
+										>
+										</button>
+									
 								</li>
-								// </Link>
+								
 							);
 						})}
 					</ul>

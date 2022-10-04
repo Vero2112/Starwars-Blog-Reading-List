@@ -10,7 +10,7 @@ const Card = (props) => {
 		: "card text-center";
 	const { store, actions } = useContext(Context);
 	const favorites = store.favorites
-	const card = { name: props.name, id: props.id, src: props.route }
+	const card = { name: props.name, id: props.id, type: props.type }
 	const favoriteInList = favorites.find((favorite) => {
 		return favorite.name === card.name
 	})
@@ -21,11 +21,11 @@ const Card = (props) => {
 
 	const addOrDeleteFavorites = () => {
 		if (favoriteInList != undefined) {
-			actions.deleteFavorites(card.name);
+			actions.deleteFavorites(card.name, card.id, card.type);
 			setButtonClassname(transparentHeart)
 		}
 		else if (favoriteInList === undefined) {		
-			actions.saveFavorite(card.name, card.id, card.src)
+			actions.saveFavorite(card.name, card.id, card.type)
 			setButtonClassname(redHeart)
 		}
 
@@ -40,11 +40,12 @@ const Card = (props) => {
 
 			<div className={clase + " m-1 text-white border-dark "} id="cardHome">
 
-				<Link to={props.route}>
+				<Link to={props.src}>
 					<img
 						className="card-img-top"					
 						style={{ width: 18 + "rem", height: 25 + "rem" }}
-						src={props.src}
+						// src={props.src}
+						src={`https://starwars-visualguide.com/assets/img/${props.type}/${props.id}.jpg`}
 						alt="Card image cap"
 						onError={(e) => {
 							e.target.onerror = null
@@ -82,6 +83,6 @@ Card.propTypes = {
 	src: propTypes.string,
 	id: propTypes.string,
 	type: propTypes.string,
-	route: propTypes.string,
+	// route: propTypes.string,
 };
 export default Card;

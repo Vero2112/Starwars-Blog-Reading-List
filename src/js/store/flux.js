@@ -67,12 +67,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 
 
-      saveFavorite: (name, id, url) => {
+      saveFavorite: (name, id, type) => {
         const store = getStore();
         const newFavorite = {};
         newFavorite.name = name;
         newFavorite.id = id;
-        newFavorite.src = url;
+        newFavorite.type = type;
         const auxFavorites = [...store.favorites, newFavorite];
 
         setStore({ favorites: auxFavorites });

@@ -75,9 +75,10 @@ const Personajes = () => {
 							<Card
 								// name={!personaje.name ? <span>Loading...</span> : personaje.name}
 								name={personaje.name}
-								src={`https://starwars-visualguide.com/assets/img/characters/${personaje.uid}.jpg`}
+								src={`/characters/${personaje.uid}`}
 								id={personaje.uid}
 								route={personaje.uid}
+								type="characters"
 							/>
 						</div>
 

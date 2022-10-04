@@ -107,7 +107,7 @@ const LearnmorePlaneta = () => {
 
             <div className="border-top-danger d-flex justify-content-center">
 
-                <Link to="/planetas">
+                <Link to="/planets">
                     <button className="btn btn-outline-light">Back!</button>
                 </Link>
 

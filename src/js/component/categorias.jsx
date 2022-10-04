@@ -11,13 +11,13 @@ const Categorias = () => {
 
             <div className="row justify-content-center">
                 <div className="col-3 m-3"> <h3 className="text-white">Planets </h3>
-                    <Link to="/planetas">
+                    <Link to="/planets">
                         <img className="card-img-top" src={`${URLdata}/planets.jpg`} style={estilo}></img>
                     </Link>
                 </div>
 
                 <div className="col-3 m-3"><h3 className="text-white">Characters </h3>
-                    <Link to="/personajes">
+                    <Link to="/characters">
                         <img className="card-img-top" src={`${URLdata}/character.jpg`} style={estilo}></img>
                     </Link>
                 </div>
