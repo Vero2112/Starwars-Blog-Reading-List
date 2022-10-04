@@ -45,24 +45,25 @@ export const Navbar = () => {
 							console.log("favorite:", favorite);
 							// console.log("favorite url  :", favorite.id);
 							return (
-								
+
 								<li
 									key={favorite.id}
-									index={favorite.id}>
+									index={favorite.id}
+									className="d-flex"
+								>
+
 									<a className="dropdown-item" href={`/${favorite.type}/${favorite.id}`} >
 
-									
 										{favorite.name}
-										</a>
-										
-										<button
-											onClick={() => actions.deleteFavorites(favorite.name)}
-											className="btn text-white fa fa-trash ms-2"
-										>
-										</button>
-									
+									</a>
+									<button
+										onClick={() => actions.deleteFavorites(favorite.name)}
+										className="btn fa fa-trash text-white"
+									>
+									</button>
+
 								</li>
-								
+
 							);
 						})}
 					</ul>
