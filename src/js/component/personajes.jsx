@@ -61,7 +61,7 @@ const Personajes = () => {
 				const personajes = data.results;
 
 				console.log("soy la data.results: ", data.results);
-				console.log("soy la data.type: ", data.type);
+				
 				actions.agregarPersonajes(personajes);
 				let cardsPersonajes = personajes.map((personaje) => {
 					// console.log("uid: ", personaje.uid)
@@ -77,8 +77,6 @@ const Personajes = () => {
 								name={personaje.name}
 								src={`https://starwars-visualguide.com/assets/img/characters/${personaje.uid}.jpg`}
 								id={personaje.uid}
-								key1="Hair color: "
-								key2="Eye color: "
 								route={personaje.uid}
 							/>
 						</div>

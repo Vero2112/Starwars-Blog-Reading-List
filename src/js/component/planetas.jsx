@@ -38,11 +38,8 @@ const Planetas = () => {
                                 // key={planeta.uid}
                                 name={planeta.name}
                                 src={`https://starwars-visualguide.com/assets/img/planets/${planeta.uid}.jpg`}
-                                key1="Gravity: "
-                                key2="Rotation period: "
-                                value1="{store.planetasInfo.value1}"
-                                value2={store.planetaDetalle.rotation_period}
                                 route={planeta.uid}
+                                id={planeta.uid}
                             />
                         </div>
                     );

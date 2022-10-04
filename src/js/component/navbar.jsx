@@ -43,7 +43,7 @@ export const Navbar = () => {
 					>
 						{store.favorites.map((favorite) => {
 							console.log("favorite:", favorite);
-							console.log("favorite url  :", favorite);
+							// console.log("favorite url  :", favorite.id);
 							return (
 								// <Link to="/">
 								<li

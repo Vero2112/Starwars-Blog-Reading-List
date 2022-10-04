@@ -10,7 +10,7 @@ const Card = (props) => {
 		: "card text-center";
 	const { store, actions } = useContext(Context);
 	const favorites = store.favorites
-	const card = { name: props.name, id: props.id }
+	const card = { name: props.name, id: props.id, src: props.route }
 	const favoriteInList = favorites.find((favorite) => {
 		return favorite.name === card.name
 	})
@@ -25,7 +25,7 @@ const Card = (props) => {
 			setButtonClassname(transparentHeart)
 		}
 		else if (favoriteInList === undefined) {		
-			actions.saveFavorite(card.name, card.id)
+			actions.saveFavorite(card.name, card.id, card.src)
 			setButtonClassname(redHeart)
 		}
 
@@ -81,10 +81,7 @@ Card.propTypes = {
 	name: propTypes.string,
 	src: propTypes.string,
 	id: propTypes.string,
-	value1: propTypes.string,
-	value2: propTypes.string,
-	key1: propTypes.string,
-	key2: propTypes.string,
+	type: propTypes.string,
 	route: propTypes.string,
 };
 export default Card;

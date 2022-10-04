@@ -34,6 +34,7 @@ const Starship = () => {
                                 src={`https://starwars-visualguide.com/assets/img/starships/${starship.uid}.jpg`}
                                 // route={"/construction"}
                                 route={starship.uid}
+                                id={starship.uid}
                             />
                         </div>
                     );
