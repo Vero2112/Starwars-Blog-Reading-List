@@ -13,7 +13,7 @@ const Planetas = () => {
     const [planetasCards, obtenerplanetasCards] = useState([]);
     const { store, actions } = useContext(Context);
 
-    const [loading, setLoading] = useState(false); 
+    const [loading, setLoading] = useState(false);
 
     const URL = "https://www.swapi.tech/api/planets";
     const getPlanetas = () => {
@@ -29,9 +29,13 @@ const Planetas = () => {
             .then((data) => {
                 const planetas = data.results;
 
+
+
                 console.log("soy las cards de todos los planetas: ", data.results);
                 actions.agregarPlanetas(planetas);
                 let cardsPlanetas = planetas.map((planeta) => {
+                    // console.log("planeta.name: ", planeta.name);
+                    const planetaname = planeta.name
                     return (
                         <div key={planeta.uid}>
                             <Card
@@ -54,7 +58,7 @@ const Planetas = () => {
             .catch((e) => {
                 console.error(e);
 
-            }).finally (() => {
+            }).finally(() => {
                 setLoading(false);
             });
 
@@ -70,12 +74,46 @@ const Planetas = () => {
         <>
             <div className="container fluid">
 
+                {/* <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" />
+                    <label for="floatingInput">Search...</label>
+                </div> */}
 
-                <div className="text-white"><h3> Planets</h3></div>
+                <label for="exampleDataList" className="form-label">Datalist example</label>
+                <div className="d-flex">
+                    <input className="form-control w-25 justify-content position-relative top-0 start-50 translate-middle-x" type="url" list="datalistOptions" id="exampleDataList" placeholder="Type to search..." >
+                        {/* <i class="fa fa-search" aria-hidden="true"></i> */}
+
+                    </input>
+
+                    <button
+                        className="ms-5"
+                    // onClick={`/${favorite.type}/${favorite.id}`}
+                    >
+                        <i class="fa fa-search" aria-hidden="true"></i>
+
+                    </button>
+
+                </div>
+                <datalist id="datalistOptions">
+                    {store.favorites.map((favorite) => {
+                        console.log("favoritedatalist:", favorite);
+                        // console.log("favorite url  :", favorite.id);
+                        return (
+                            // href={`/${favorite.type}/${favorite.id}`} 
+
+                            <option value={favorite.name}></option>
+                            
+
+                        );
+                    })}
+                </datalist>
+
+                <div className="text-white"><h3> Planets </h3></div>
                 <div className="card-group">
 
-                    {loading ? <Loading/>
-                    : planetasCards}
+                    {loading ? <Loading />
+                        : planetasCards}
 
                 </div>
 
